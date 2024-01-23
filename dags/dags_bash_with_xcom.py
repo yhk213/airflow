@@ -26,4 +26,4 @@ with DAG(
         do_xcom_push = False 
     )
 
-    bash_push() >> bash_pull()
+    bash_push >> bash_pull
