@@ -8,7 +8,7 @@ from airflow.operators.python import PythonOperator
 
 with DAG(
     dag_id='dags_bash_python_with_xcom',
-    schedule = "0, 0, *, *, *",
+    schedule = "0 0 * * *", 
     start_date = pendulum.datetime(2024, 1, 20, tz="Asia/Seoul"),
     catchup=False
 ) as dag:
