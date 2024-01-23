@@ -42,7 +42,9 @@ with DAG(
         ti = kwargs['ti']
         status_value = ti.xcom_pull(key = 'bash_pushed')
         return_value = ti.xcom_pull(task_ids = 'bash_push')
-        print(f'status value : ', {status_value})
-        print(f'return_value : ', return_value)
+        print(f'status value : {status_value}' )
+        print(f'return_value : {return_value}' )
+    
+    bash_push >> python_pull_xcom()
 
   
