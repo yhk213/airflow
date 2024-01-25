@@ -5,8 +5,8 @@ from airflow.operators.python import PythonOperator, BranchPythonOperator
 
 with DAG (
     dag_id = 'dags_branch_python_operator',
-    start_date = pendulum.datetime(2024,2, 15, tz='Asia/Seoul'),
-    schedule = '0 0 * * *',
+    start_date = pendulum.datetime(2024,1, 25, tz='Asia/Seoul'),
+    schedule = None,
     catchup = False
 ) as dag:
     def select_random():
@@ -16,7 +16,7 @@ with DAG (
 
         if selected_item == 'A':
             return 'task_a'
-        else :
+        else:
             return ['task_b', 'task_c']
         
     python_branch_task = BranchPythonOperator(
