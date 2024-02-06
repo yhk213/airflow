@@ -1,6 +1,6 @@
 from airflow import DAG
 from airflow.decorators import task
-from airflow.operators.bash import BaseOperator
+from airflow.operators.bash import BashOperator
 from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 import pendulum
 
@@ -11,7 +11,7 @@ with DAG (
     catchup= False
 ) as dag :
     
-    start_task = BaseOperator(
+    start_task = BashOperator(
         task_id = 'start_task',
         bash_command = 'echo "Start !!" '
     )
